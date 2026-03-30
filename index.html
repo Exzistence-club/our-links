@@ -1,70 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electrical Engineering Club</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="exzistence.ico?" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExZistence — EE Club @ UPM</title>
+  <link rel="shortcut icon" href="exzistence.ico?" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem("exzistence-theme");
+      if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+      } else {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+      }
+    })();
+  </script>
 </head>
 <body>
-    <header>
-        <img src="images/club-logo.png" alt="club logo">
-        <h1>Welcome to the Electrical Engineering (ExZistence) Club Website ⚡</h1>
-    </header>
-    <main>
-        <section id="link-list">
-            <h2 id="click-guide">Please click the Icons below to reach our social media!</h2>
-            <ul>
-                <li>
-                    <a href="https://chat.whatsapp.com/LIIJ2dMLc539KQdyZ7MvH6" target="_blank">
-                        <img src="images/whatsapp.png" alt="whatsapp">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.tiktok.com/@exzistence1?_t=ZS-8uD7iFHMQ2Z&_r=1" target="_blank">
-                        <img src="images/tik-tok.png" alt="tik-tok">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/ee_exzistence_club?igsh=emYwMmR4ZzV3cTM5" target="_blank">
-                        <img src="images/instagram.png" alt="instagram">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://teams.microsoft.com/l/channel/19%3A59626f6df0fa40d9a3a4d63369c4c3ba%40thread.skype/General?groupId=ba55339b-2f24-4d0e-9769-9fbc33cc7268&tenantId=1d44fb2b-bc2f-4259-a377-e8df8cace13b" target="_blank">
-                        <img src="images/business.png" alt="microsoft-teams">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://t.me/+bGf9AhCHkpo5ZDlk" target="_blank">
-                        <img src="images/telegram.png" alt="telegram">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://x.com/ExzistenceUPM?t=ZEQ3FovQgFxvFq-3DAFgkA&s=09" target="_blank">
-                        <img src="images/twitter.png" alt="twitter">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://youtube.com/channel/UC_lJNaH9sgG2DBF-52TS42Q" target="_blank">
-                        <img src="images/youtube.png" alt="youtube">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/company/exzistence-club-upm" target="_blank">
-                        <img src="images/linkedin.png" alt="linkedin">
-                    </a>                
-                </li>
-                 
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>Or contact us via the email:</p>
-        <p id="contact-email">exzistence@upm.edu.sa</p>
-        <p>&copy; 2025 Electrical Engineering (ExZistence) Club. All rights reserved.</p>
-    </footer>
-    <script src="scripts.js"></script>
+
+  <!-- ── THEME TOGGLE ── -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="toggle-icon">☀</span>
+  </button>
+
+  <!-- ── BACKGROUND GRID ── -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════
+       HERO / HEADER
+  ══════════════════════════════ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="logo-wrap">
+        <!-- Dark-mode logo -->
+        <img src="images/club-logo-dark-mode.png" alt="ExZistence Club Logo" class="club-logo logo-dark" />
+        <!-- Light-mode logo (swap src if you have a separate light version) -->
+        <img src="images/club-logo-light-mode.png" alt="ExZistence Club Logo" class="club-logo logo-light" />
+      </div>
+      <div class="hero-text">
+        <p class="hero-eyebrow">University of Prince Mugrin · EE Club</p>
+        <h1 class="hero-title">Ex<span class="accent">Z</span>istence</h1>
+        <p class="hero-sub">Where engineering meets innovation.</p>
+      </div>
+    </div>
+
+    <!-- decorative equation strip -->
+    <div class="eq-strip" aria-hidden="true">
+      <span>V = IR</span><span>·</span>
+      <span>P = IV</span><span>·</span>
+      <span>∇ x E = -∂B/∂t</span><span>·</span>
+      <span>F = qE</span><span>·</span>
+      <span>Z = R + jX</span><span>·</span>
+      <span>λf = c</span>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════
+         JOIN CTA
+    ══════════════════════════════ -->
+    <section class="section join-section" id="join">
+      <div class="join-card">
+        <div class="join-left">
+          <span class="join-label">Ready to plug in?</span>
+          <h2 class="join-title">Join ExZistence</h2>
+          <p class="join-desc">Become a member and connect with the brightest minds in electrical engineering at UPM.</p>
+        </div>
+        <a
+          href="https://forms.office.com/REPLACE_WITH_MEMBERSHIP_LINK"
+          target="_blank"
+          class="join-btn"
+          id="joinBtn"
+        >
+          <span class="join-btn-icon">⚡</span>
+          Membership Application
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         SOCIAL LINKS
+    ══════════════════════════════ -->
+    <section class="section" id="connect">
+      <h2 class="section-title">Connect With Us</h2>
+      <p class="section-sub">Find us on all platforms — stay in the loop.</p>
+
+      <div class="links-grid" id="linksGrid">
+        <!-- cards injected by scripts.js -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════
+         ABOUT US
+    ══════════════════════════════ -->
+    <section class="section" id="about">
+      <h2 class="section-title">About Us</h2>
+      <p class="section-sub">A little about who we are and what we do.</p>
+
+      <div class="about-grid">
+
+        <!-- Description -->
+        <div class="about-text">
+          <p>
+            <strong>ExZistence</strong> is the official Electrical Engineering student club at
+            University of Prince Mugrin (UPM), Located at Al-Madinah, Saudi Arabia. We're a proud community of students passionate about
+            electronics, control systems, power engineering, telecommunications, and everything
+            in between.
+          </p>
+          <p>
+            We run workshops, technical talks, project showcases, and competitions throughout
+            the year — giving members hands-on experience beyond the classroom. Whether you're
+            soldering your first circuit or looking to connect with professionals, there's a place for you here.
+          </p>
+          <p>Always Remember: </p>
+          <div class="about-equations" aria-label="Fun electrical equations">
+            <span>V = IR</span>
+            <span>P = I²R</span>
+            <span>τ = RC</span>
+            <span>∇·E = p/ε₀</span>
+          </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="about-photos">
+          <!-- Replace src values with your actual club photos -->
+          <div class="photo-card photo-main">
+            <img src="images/about-1.jpg" alt="ExZistence club activity" />
+            <span class="photo-label">All-Classes Competition 2025</span>
+          </div>
+          <div class="photo-card photo-sm">
+            <img src="images/about-2.jpg" alt="Club members" />
+            <span class="photo-label">3D-printing workshop</span>
+          </div>
+          <div class="photo-card photo-sm">
+            <img src="images/about-3.jpg" alt="Competition" />
+            <span class="photo-label">Powerstation visit</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <p class="footer-email">
+      <span>✉</span>
+      <a href="mailto:exzistence@upm.edu.sa">exzistence@upm.edu.sa</a>
+    </p>
+    <p class="footer-copy">© 2026 ExZistence · Electrical Engineering Club · UPM. All rights reserved.</p>
+  </footer>
+
+  <a href="#connect" id="competition-banner" class="floating-banner">
+    <div class="banner-icon">🏆</div>
+    <div class="banner-text">
+      <h3>All-Classes Competition 2026</h3>
+      <p>Check in our new Discord. Don't miss out!</p>
+    </div>
+  </a>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
